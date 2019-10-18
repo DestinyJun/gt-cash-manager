@@ -1,0 +1,28 @@
+.login {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/image/bg01.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    .form {
+        position: absolute;
+        width: 30vw;
+        height: 40vh;
+        left: 35vw;
+        top: 30vh;
+        background: #fff;
+        border-radius: 5px;
+        .form-title{
+            margin-top: 3vh;
+            font-size: 27px;
+            color: #1D2935;
+        }
+        // background: #fff;
+        .form-user {
+           margin: 3vw;
+        }
+        .form-submit {
+            width: 80%;
+        }
+    }
+}

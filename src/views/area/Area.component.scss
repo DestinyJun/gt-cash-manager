@@ -1,0 +1,21 @@
+.areahead{
+    .select{
+        margin: 1vw;
+        text-align: left;
+    }
+    .table {
+        height: 80vh;
+        .select {
+            margin-top: 0;
+        }
+    }
+    .Paging {
+        // margin-top: 2vh;
+    }
+    hr {
+        background: #EBEEF5;
+        color: #EBEEF5;
+        margin-left: 1vw;;
+        margin-right: 1vw;;
+    }
+}
