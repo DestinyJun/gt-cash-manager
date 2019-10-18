@@ -21,10 +21,28 @@ export default {
             //     storeId: null,
             //     storeName: null,
             // },
-            tableData: []
+            tableData: [],
+            // tableHeader:[
+            //     {filed: 'serviceAreaName', label: '服务区名称' },
+            //     {filed: 'orientation', label: '服务区方向' },
+            //     {filed: 'storeName', label: '店铺名称' },
+            //     {filed: 'manage', label: '管理人姓名' },
+            //     {filed: 'manage', label: '管理人姓名' },
+            // ],
+            // t_detail: [
+            //     {filed: 'storeName', label: '店铺名称' },
+            //     {filed: 'storeId', label: '店铺Id' },
+            //     {filed: 'orientation', label: '服务区方向' },
+            //     {filed: 'manage', label: '管理人姓名' },
+            //     {filed: 'manageTelephone', label: '管理人电话' },
+            //     {filed: 'serviceAreaName', label: '服务区名称' },
+            //     {filed: 'serviceAreaId', label: '服务区Id' },
+            // ]
+
         }
     },
     created() {
+        this.options = [];
         areaSrv.getServiceDownloadData({userCode: this.userCode}).then(
             value => {
                 console.log(value);
@@ -42,29 +60,28 @@ export default {
     },
     methods: {
         changeData(){
-            // console.log('我是change方法');
-            // console.log(this.serviceCode);
+            this.getTableList();
+        },
+        pageChange(data){
+           console.log(data + '： 我是父组件');
+           this.pageNo = data;
+           this.getTableList()
+        },
+        getTableList(){
+            console.log(this.pageNo);
+            console.log(this.serviceCode);
             areaSrv.getAreaInfoPageData({serverId: this.serviceCode, pageSize: '10', pageNo: this.pageNo})
             .then(
                 value => {
-                    console.log(value);
+                    console.log(value.data); 
+
                     if(value.code === '1000') {
-                        console.log(value.data); 
-                        // this.tableData = value.data;
-                        // value.data.forEach (v => {
-                        //     for (const key in this.d_tableListData) {
-                        //          this.d_tableListData[key] = v[key]
-                        //     }
-                        //     this.tableData.push(this.d_tableListData);
-                        // })
-                        console.log( this.tableData);
-
-                    }else {
-
+                        this.tableData= value.data;
+                    } else{
+                        util.toast(value.msg, 'error')
                     }
                 }
             )
-            // console.log(this.pageNo);
         }
-    },
+    }
 }

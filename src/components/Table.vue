@@ -2,34 +2,34 @@
   <div id="tables" class="tables">
     <div class="select">
       <el-table :data="t_data" style="width: 100%">
-        <el-table-column type="expand">
-          <!-- <template slot-scope="datas">
+        <el-table-column type="expand"  fixed>
+          <template slot-scope="datas">
             <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="商品名称">
-                <span>{{ datas.row.name }}</span>
+              <el-form-item label="店铺名称">
+                <span>{{ datas.row.storeName }}</span>
               </el-form-item>
-              <el-form-item label="所属店铺">
-                <span>{{ datas.row.shop }}</span>
+              <el-form-item label="店铺Id">
+                <span>{{ datas.row.storeId }}</span>
               </el-form-item>
-              <el-form-item label="商品 ID">
-                <span>{{ datas.row.id }}</span>
+              <el-form-item label="服务区方向">
+                <span>{{ datas.row.orientation }}</span>
               </el-form-item>
-              <el-form-item label="店铺 ID">
-                <span>{{ datas.row.shopId }}</span>
+              <el-form-item label="管理人姓名">
+                <span>{{ datas.row.manage }}</span>
               </el-form-item>
-              <el-form-item label="商品分类">
-                <span>{{ datas.row.category }}</span>
+              <el-form-item label="管理人电话">
+                <span>{{ datas.row.manageTelephone }}</span>
               </el-form-item>
-              <el-form-item label="店铺地址">
-                <span>{{ datas.row.address }}</span>
+              <el-form-item label="服务区名称">
+                <span>{{ datas.row.serviceAreaName}}</span>
               </el-form-item>
-              <el-form-item label="商品描述">
-                <span>{{ datas.row.desc }}</span>
+              <el-form-item label="服务区Id">
+                <span>{{ datas.row.serviceAreaId }}</span>
               </el-form-item>
             </el-form>
-          </template> -->
+          </template>
         </el-table-column>
-        <el-table-column label="商品 ID" prop="manage"></el-table-column>
+        <el-table-column label="商品ID" prop="manage"></el-table-column>
         <el-table-column label="商品名称" prop="manageTelephone"></el-table-column>
         <el-table-column label="地址" prop="orientation"></el-table-column>
         <el-table-column label="描述" prop="storeName"></el-table-column>
@@ -42,15 +42,16 @@ export default {
   name: "tables",
   data() {
     return {
-      tableData5: null
+      tableData5: this.t_data,
     };
   },
   props: {
-    t_data: Array
+    t_data: Array,
+    serviceId:  [String, Number],
   },
   updated(){
     console.log(123);
-     console.log( this.t_data);
+     console.log(this.t_data);
     //  console.log( this.t_data);
   },
   methods: {

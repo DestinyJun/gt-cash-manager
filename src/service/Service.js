@@ -13,4 +13,9 @@ export default class Server {
     getServiceDownloadData(data){
       return  Vue.axios.post('/districtManager/getAllServerInfo', data);
     }
+
+    // 获取区长店铺列表
+    getDistrictListData(data){
+      return  Vue.axios.post('/districtHead/getAllMerchant', data);
+    }
 }

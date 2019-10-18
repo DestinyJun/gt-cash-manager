@@ -14,7 +14,7 @@
       <el-col :span="4">
         <div class="grid-content bg-purple">
           <img src="../assets/image/xz.jpg" alt="头像" @click="imageClick" />
-          <span style="color: #fff;margin-left: 1vw;margin-top: 1vh">{{this.$store.state.USER.posistion}}</span>  
+          <!-- <span style="color: #fff;margin-left: 1vw;margin-top: 1vh">123</span>   -->
           <el-card  class="box-card" :hidden="u_listHidden">
             <p v-for="(item, i) in userList" :key="i" @click="userEevnt(item)">{{item}}</p>
           </el-card>
@@ -24,14 +24,16 @@
   </div>
 </template>
 <script>
-import store from '../store.js'
+import Util from '../uitl/publicUtil.js'
+var util = new Util();
 export default {
   name: "headers",
   props: ["data"],
   data() {
       return {
           userList: ['退出登录', '修改密码'],
-          u_listHidden: true
+          u_listHidden: true,
+          username: util.getObject('userInfo').posistion
       }
   },
   created() {
@@ -39,6 +41,7 @@ export default {
   methods: {
       userEevnt(itemdata){
         console.log(itemdata);
+        this.imageClick();
       },
       imageClick(){
           this.u_listHidden = ! this.u_listHidden;

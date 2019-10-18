@@ -12,19 +12,19 @@ class Util {
                 type: type
             }
          )
-    };
+    }
     setItem(name , value){
         localStorage.setItem(name, value)
-    };
+    }
     getItem(name){
        return localStorage.getItem(name)
-    };
+    }
     getObject(name){
        return JSON.parse(sessionStorage[name] || '{}')
-    };
+    }
     setObject(name, value){
         sessionStorage[name] = JSON.stringify(value)
-    };
+    }
     delitem(name){
         localStorage.removeItem(name)
     }

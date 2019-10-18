@@ -2,7 +2,7 @@
   <div id="areahead" class="areahead">
     <div class="select">
       <label for>请选择：</label>
-      <el-select v-model="serviceCode" placeholder="请选择服务区" v-bind:change="changeData()">
+      <el-select v-model="serviceCode" placeholder="请选择服务区" @change="changeData">
         <el-option
           v-for="item in options"
           :key="item.value"
@@ -16,7 +16,7 @@
       <tables v-bind:t_data = "tableData"></tables>
     </div>
     <div class="paging">
-      <Paging></Paging>
+      <Paging v-on:pageChange="pageChange"></Paging>
     </div>
   </div>
 </template>

@@ -1,6 +1,5 @@
 import Util from '../../uitl/publicUtil.js'
 import loginSrv from '../../service/Service.js'
-import store from '@/store'
 var util = new Util();
 var loginsrv = new loginSrv();
 export default {
@@ -29,7 +28,8 @@ export default {
                   // store.dispatch("setLoadingStatus", "showLoading")
                   // store.dispatch("setUserInfo", {code: value.data.userCode, posistion:  value.data.posistion })
                   util.setObject("userInfo", value.data)
-                  this.$router.push('/home/areahead')
+                  this.$router.push('/home/district')
+                  // this.$router.push('/home/areahead')
                  }else{
                         util.toast(value.msg, 'error');
                  }
