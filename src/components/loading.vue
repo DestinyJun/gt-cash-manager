@@ -10,7 +10,6 @@
     </div>
 </template>
 <script>
-import stroe from '../store.js'
 export default {
     name: 'loading',
     data() {

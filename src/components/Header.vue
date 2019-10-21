@@ -93,7 +93,7 @@ export default {
             padding: 4px;
             border-bottom:2px solid #d4dde4;
         }
-        p:hover {
+        &:hover {
             background: #00d1b2;
         }
     }
