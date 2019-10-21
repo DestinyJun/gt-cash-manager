@@ -21,23 +21,24 @@ export default {
             //     storeId: null,
             //     storeName: null,
             // },
-            tableData: [],
-            // tableHeader:[
-            //     {filed: 'serviceAreaName', label: '服务区名称' },
-            //     {filed: 'orientation', label: '服务区方向' },
-            //     {filed: 'storeName', label: '店铺名称' },
-            //     {filed: 'manage', label: '管理人姓名' },
-            //     {filed: 'manage', label: '管理人姓名' },
-            // ],
-            // t_detail: [
-            //     {filed: 'storeName', label: '店铺名称' },
-            //     {filed: 'storeId', label: '店铺Id' },
-            //     {filed: 'orientation', label: '服务区方向' },
-            //     {filed: 'manage', label: '管理人姓名' },
-            //     {filed: 'manageTelephone', label: '管理人电话' },
-            //     {filed: 'serviceAreaName', label: '服务区名称' },
-            //     {filed: 'serviceAreaId', label: '服务区Id' },
-            // ]
+            t_data: [],
+            t_header:[
+                {field: 'storeName', label: '店铺名称' },
+                {field: 'manage', label: '管理人姓名' },
+                {field: 'manageTelephone', label: '管理人电话' },
+                {field: 'orientation', label: '服务区方向' },
+                // {filed: 'manage', label: '管理人姓名' },
+            ],
+            t_detail: [
+                {field: 'storeName', label: '店铺名称' },
+                {field: 'storeId', label: '店铺Id' },
+                {field: 'orientation', label: '服务区方向' },
+                {field: 'manage', label: '管理人姓名' },
+                {field: 'manageTelephone', label: '管理人电话' },
+                {field: 'serviceAreaName', label: '服务区名称' },
+                {field: 'serviceAreaId', label: '服务区Id' },
+            ],
+            t_type: 1,
 
         }
     },
@@ -68,15 +69,13 @@ export default {
            this.getTableList()
         },
         getTableList(){
-            console.log(this.pageNo);
-            console.log(this.serviceCode);
             areaSrv.getAreaInfoPageData({serverId: this.serviceCode, pageSize: '10', pageNo: this.pageNo})
             .then(
                 value => {
                     console.log(value.data); 
 
                     if(value.code === '1000') {
-                        this.tableData= value.data;
+                        this.t_data= value.data;
                     } else{
                         util.toast(value.msg, 'error')
                     }

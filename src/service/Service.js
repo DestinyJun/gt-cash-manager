@@ -18,4 +18,25 @@ export default class Server {
     getDistrictListData(data){
       return  Vue.axios.post('/districtHead/getAllMerchant', data);
     }
+
+    // 商户获取店铺信息
+    getMerchantInfoPageData(data){
+      return  Vue.axios.post('/merchant/getAllMerchantInfo', data);
+    }
+    // 获取所有店员
+    getMerchangeUserData(data){
+      return  Vue.axios.post('/merchant/getAdminRole', data);
+    }
+    // 获取店员下面的所有员工
+    getRoleAllUserData(data){
+      return  Vue.axios.post('/merchant/getUserByMerchantCodeIsAdmin', data);
+    }
+    // 提交修改店员信息
+    submitChangeRoleData(data){
+      return  Vue.axios.post('/merchant/updateAdminUser', data);
+    }
+    // 为店铺添加店长
+    addManagerforStore(data){
+      return  Vue.axios.post('/merchant/addAdmin', data);
+    }
 }

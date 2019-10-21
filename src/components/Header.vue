@@ -31,16 +31,15 @@ export default {
   props: ["data"],
   data() {
       return {
-          userList: ['退出登录', '修改密码'],
+          userList: ['退出登录'],
           u_listHidden: true,
           username: util.getObject('userInfo').posistion
       }
   },
-  created() {
-  },
   methods: {
       userEevnt(itemdata){
         console.log(itemdata);
+        this.$router.push('/login')
         this.imageClick();
       },
       imageClick(){
@@ -71,7 +70,7 @@ export default {
     img {
       height: 6vh;
       border-radius: 50%;
-      margin-top: 1vh;
+      // margin-top: 1vh;
       text-align: right;
       vertical-align:middle;
       //   margin-right: 2vw;

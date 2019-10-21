@@ -27,6 +27,11 @@ export default new Router({
         {path: 'district', name: 'district', component: () => import('@/views/district/District.vue')},
         {path: 'merchant', name: 'merchant', component: () => import('@/views/merchant/Merchant.vue')},
       ]
+    },
+    {
+      path: '/error',
+      name: 'error',
+      component: () => import('@/views/error/error.vue')
     }
   ]
 })

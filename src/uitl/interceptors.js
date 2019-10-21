@@ -42,14 +42,10 @@ axios.interceptors.response.use( (config) => {
             return config.data;
         // }
     } else {
-        router.push({path: '/login'});  // 进入登陆页面
+        store.dispatch('setLoadingStatus',  'hideLoading' )
+        // window.alert('链接服务器失败，请稍后重试！')
+        router.push({path: '/error'});  // 进入登陆页面
     }
-    // if ((!is_log) && config.data.code === -1) {
-    //     router.push({path: '/login'});  // 进入登陆页面
-    // }
-    // if (config.data.code === -2) {
-    //     router.push({path: '/'}); // 进入实名认证
-    // }
 }, (error) => {
     return Promise.reject(error);
     // 错误的请求结果处理，这里的代码根据后台的状态码来决定错误的输出信息

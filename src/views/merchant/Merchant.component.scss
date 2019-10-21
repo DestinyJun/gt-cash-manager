@@ -1,0 +1,22 @@
+.merchant {
+    .el-dialog__body {
+    //    >>> .el-checkbox__label {
+    //         display: inline-block;
+    //         padding-left: 31px;
+    //         line-height: 27px;
+    //         font-size: 20px;
+    //  }
+    }
+}
+/deep/ .el-checkbox__label {
+    display: inline-block;
+    padding-left: 31px;
+    line-height: 27px;
+    font-size: 20px;
+}
+/deep/ .el-tabs__item  {
+    font-size: 20px;
+}
+/deep/ .el-tabs__nav-wrap {
+    margin-left: 1vw;
+}

@@ -25,11 +25,14 @@ export default {
              value => {
                  console.log(value.data);
                  if(value.code === '1000') {
-                  // store.dispatch("setLoadingStatus", "showLoading")
-                  // store.dispatch("setUserInfo", {code: value.data.userCode, posistion:  value.data.posistion })
                   util.setObject("userInfo", value.data)
-                  this.$router.push('/home/district')
-                  // this.$router.push('/home/areahead')
+                  util.toast('登录成功', 'success');
+                  switch(value.data.posistion){
+                    case '商户': this.$router.push('/home/merchant');break;
+                    case '区长': this.$router.push('/home/district');break;
+                    case '区域经理': this.$router.push('/home/areahead');break;
+                  }
+                  // this.$router.push('/home/district')
                  }else{
                         util.toast(value.msg, 'error');
                  }
